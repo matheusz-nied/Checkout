@@ -14,4 +14,6 @@ Back-End:
   - Prisma
   - Postgres
 
+## Video do projeto
+
 ![Video do Projeto](./it.gif)
