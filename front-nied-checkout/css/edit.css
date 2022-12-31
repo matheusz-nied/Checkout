@@ -1,0 +1,32 @@
+.container-edit hr {
+  width: 100%; }
+
+@media screen and (max-width: 768px) {
+  input {
+    width: 5rem; } }
+
+.nied-container-input-payments {
+  margin: .3rem; }
+  .nied-container-input-payments div {
+    display: flex;
+    flex-direction: column; }
+
+.nied-title-edit {
+  padding-top: 0.8rem;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #3688da;
+  font-weight: bold; }
+
+.div-buttons-edit {
+  width: 15rem;
+  display: flex;
+  justify-content: space-around; }
+
+.nied-button-edit {
+  margin-top: 2.6rem;
+  width: 6rem;
+  padding-left: 0;
+  padding-right: 0; }
+
+/*# sourceMappingURL=edit.css.map */

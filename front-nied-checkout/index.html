@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/icon-money.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Tapestry&display=swap" rel="stylesheet">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.13.10/dist/css/uikit.min.css" />
+
+    <link rel="stylesheet" href="./css/style.css" />
+
+
+    <title>Nied Checkout</title>
+</head>
+
+<body>
+
+    <header>
+
+        <nav class="uk-navbar uk-margin nied-navbar" uk-navbar>
+            <a href="/" class="nied-logo">Nied Checkout </a>
+        </nav>
+
+    </header>
+
+    
+
+    <div class="nied-info">
+        <p>Venda do mês: <span>R$ </span><span id="#sale-of-month">0</span></p>
+    </div>
+
+    <!-- //Body -->
+    <section class="nied-body">
+
+
+        <div id="#container-listagem" class="container-listagem uk-child-width-1-4@s uk-grid-match uk-margin uk-padding"
+            uk-grid>
+
+
+        </div>
+
+    </section>
+
+    <!-- //Modal -->
+    <div id="modal-sections" uk-modal>
+        <div class="uk-modal-dialog nied-modal-add-container">
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+
+            <form method="post"
+                id="#form-createCheckout">
+                <div class="uk-modal-header">
+                    <h2 class="uk-modal-title nied-modal-title">Fechamento caixa</h2>
+                </div>
+                <div class="uk-modal-body nied-container-inputs">
+
+                    <label for="date">Dia Fechamento:</label>
+                    <input class="uk-input nied-date-input" required id="#day" type="date" name="day">
+                    <hr />
+
+                    <label for="money">Dinheiro no caixa:</label>
+                    <input class="uk-input" id="#cash_in_hand_card" required type="number" step="0.01" placeholder="0,00"
+                        name="cash_in_hand_money" />
+
+                    <label for="card">Dinheiro no cartão:</label>
+                    <input class="uk-input" id="#cash_in_hand_money" required type="number" step="0.01" placeholder="0,00"
+                        name="cash_in_hand_money" />
+
+
+                    <div class="nied-container-inputs">
+                        <h3 class="nied-title-pagamentos">Pagamentos</h3>
+
+
+                        <div id="#container-payments">
+                            <div class="div-payments">
+                                <label>Referente:</label>
+                                <input class="uk-input" id="#reference_to" type="text" placeholder="Nome empresa"
+                                    name="reference_to">
+
+                                <label>Valor pago:</label>
+                                <input class="uk-input" id="#value" type="number" step="0.01" placeholder="0,00"
+                                    name="value" />
+                                <hr />
+
+                            </div>
+                        </div>
+
+                        <span class="uk-text-muted">Clique no botão para adicionar um novo pagamento</span>
+
+                        <button class="nied-button-add-new-payment" id="nied-button-add-new-payment" type="button"
+                            onClick="addNewPayment()">+</button>
+                    </div>
+
+
+                </div>
+                <div class="uk-modal-footer uk-text-right">
+                    <button class="uk-button uk-button-default uk-modal-close" type="button">Cancelar</button>
+                    <button class="uk-button uk-button-primary" type="submit">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="modal-center" class="uk-flex-top" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical nied-modal-search-container">
+
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+
+            <h2 class="uk-modal-title">Escolha a Data</h2>
+            <input class="uk-input" type="date">
+
+            <p class="uk-text">
+                <button class="uk-button uk-button-default uk-modal-close" type="button">Cancelar</button>
+                <button class="uk-button uk-button-primary nied-button-proucurar-modal" type="submit">Proucurar</button>
+            </p>
+        </div>
+    </div>
+
+
+    <button class="nied-button nied-button-search" href="#modal-center" uk-toggle>
+        <span uk-icon="icon:  search
+        ; ratio: 1.6"></span>
+    </button>
+
+    <button class="nied-button nied-button-add" href="#modal-sections" uk-toggle>
+        <span uk-icon="icon:  file-edit
+        ; ratio: 1.6"></span>
+    </button>
+
+
+
+
+    <footer class="footer">
+        <div class="container-links">
+            <a href="https://github.com/matheusz-nied" target="_blank" class="github" uk-icon="icon: github; ratio: 1.3"></a>
+            <a href="https://www.linkedin.com/in/matheus-fernandes-da-silva-5810201b6/" target="_blank" class="linkedin"
+                uk-icon="icon: linkedin; ratio: 1.3"></a>
+            <a href="https://www.instagram.com/matheusz.nied/" target="_blank" class="instagram"
+                uk-icon="icon: instagram; ratio: 1.3"></a>
+            <a href="https://twitter.com/matheusz_nied" target="_blank" class="twitter" uk-icon="icon: twitter; ratio: 1.3"></a>
+
+
+
+        </div>
+        <p class="text-footer">© Matheusz Nied</p>
+    </footer>
+
+
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.10/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.10/dist/js/uikit-icons.min.js"></script>
+    <script src="uikit/dist/js/uikit-icons.min.js"></script>
+    <script src="./js/isAuth.js"></script>
+    <script src="./js/listagem.js"></script>
+    <script src="./js/createCheckout.js"></script>
+    <script src="./js/util.js"></script>
+
+
+</body>
+
+</html>

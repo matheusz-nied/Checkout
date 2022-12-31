@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Checkout_Day {
+  id                               String    @id @default(uuid())
+  day                              DateTime  @unique
+  day_like_string                  String
+  cash_in_hand_card                Float
+  cash_in_hand_money               Float
+  cash_in_hand                     Float
+  payments                         Payment[]
+  sale_day                         Float
+
+  @@map("checkout_day")
+}
+
+model Payment {
+  id           String   @id @default(uuid())
+  day          DateTime
+  reference_to String
+  value        Float
+
+  day_checkout    Checkout_Day @relation(fields: [id_day_checkout], references: [id])
+  id_day_checkout String
+
+
+  @@map("payment")
+}

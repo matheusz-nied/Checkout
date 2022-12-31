@@ -1,0 +1,18 @@
+.nied-body-login {
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; }
+  .nied-body-login span {
+    font-family: "Tapestry", cursive;
+    font-size: 2.3rem;
+    margin-bottom: 2rem;
+    color: black;
+    font-style: italic; }
+  .nied-body-login p {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+
+/*# sourceMappingURL=login.css.map */
